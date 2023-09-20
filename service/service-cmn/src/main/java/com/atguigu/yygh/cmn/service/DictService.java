@@ -24,4 +24,7 @@ public interface DictService extends IService<Dict> {
     void exportData(HttpServletResponse response);
 
     void importData(MultipartFile file);
+
+    //根据dictcode和value查询
+    String getDictName(String dictcode, String value);
 }
