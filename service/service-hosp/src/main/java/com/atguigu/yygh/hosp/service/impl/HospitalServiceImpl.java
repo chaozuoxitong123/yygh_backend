@@ -62,6 +62,8 @@ public class HospitalServiceImpl implements HospitalService {
         return hospital;
     }
 
+
+    //医院列表（条件查询带分页）
     @Override
     public Page<Hospital> selectHospPage(Integer page, Integer limit, HospitalQueryVo hospitalQueryVo) {
         //创建pageable对象
@@ -84,6 +86,17 @@ public class HospitalServiceImpl implements HospitalService {
         });
 
         return pages;
+    }
+
+    //更新医院上线状态
+    @Override
+    public void updateStatus(String id, Integer status) {
+        //先获取需要操作的医院id
+        Hospital hospital = hospitalRepository.findById(id).get();
+        //设置相关的值
+        hospital.setStatus(status);
+        hospital.setUpdateTime(new Date());
+        hospitalRepository.save(hospital);
     }
 
     //获取查询list集合，遍历进行医院等级封装
