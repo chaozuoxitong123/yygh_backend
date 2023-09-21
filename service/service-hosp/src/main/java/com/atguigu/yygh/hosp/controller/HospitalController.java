@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author malinyan
@@ -42,5 +43,12 @@ public class HospitalController {
     public Result updateHospStatus(@PathVariable String id,@PathVariable Integer status){
         hospitalService.updateStatus(id,status);
         return Result.ok();
+    }
+
+    //获取医院详情
+    @GetMapping("showHospDetail/{id}")
+    public Result showHospDetail(@PathVariable String id){
+        Map<String,Object> map = hospitalService.getHospById(id);
+        return Result.ok(map);
     }
 }
