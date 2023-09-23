@@ -21,7 +21,7 @@ import java.util.List;
 @Api(description = "数据接口字典")
 @RestController
 @RequestMapping("/admin/cmn/dict")
-@CrossOrigin
+//@CrossOrigin
 public class DictController {
     @Autowired
     private DictService dictService;

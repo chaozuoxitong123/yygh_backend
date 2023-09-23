@@ -10,6 +10,7 @@
         <module>service/service-cmn</module>
         <module>service_client</module>
         <module>service_client/service_cmn_client</module>
+        <module>server-gateway</module>
     </modules>
 
     <parent>
